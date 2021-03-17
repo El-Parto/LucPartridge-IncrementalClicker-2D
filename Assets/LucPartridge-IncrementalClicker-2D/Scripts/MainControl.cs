@@ -7,10 +7,13 @@ public class MainControl : MonoBehaviour
 
     public GameData gameData; // calls a class
 
+    public LazinessEfficiency lEfficency;
+
     // Start is called before the first frame update
     void Start()
     {
         gameData = new GameData();
+        lEfficency.triggerActiveLEUpgrade();
     }
 
     public void AddPoints()
@@ -20,16 +23,12 @@ public class MainControl : MonoBehaviour
 
 
     }
-    /*
-    public void AutoPoints()
-    {
 
-    }
-    */
     // Update is called once per frame
     void Update()
     {
         lazyPointsText.text = "Lazy Points \n" + gameData.lazyPointsTotal; // makes it so that the text will add the double variable "lazyPoints" (a number) to the text "Lazy points"
+        
     }
 
 }
