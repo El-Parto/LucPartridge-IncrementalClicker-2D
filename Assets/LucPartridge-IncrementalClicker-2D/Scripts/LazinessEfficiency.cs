@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 public class LazinessEfficiency : MonoBehaviour
 {
-    public MainControl mainControl;
+    public GameData gameData;
 
-    private GameObject gameObject;
+    
 
     [SerializeField]
     private TMP_Text lazyNameText;
@@ -29,7 +29,7 @@ public class LazinessEfficiency : MonoBehaviour
 
     public void triggerActiveLEUpgrade()
     {
-        if (mainControl.gameData.lazyPointsTotal >= lazyECost)
+        if (gameData.lazyPointsTotal >= lazyECost)
         {
             gameObject.SetActive(true);
         }
@@ -37,10 +37,10 @@ public class LazinessEfficiency : MonoBehaviour
 
     public void OnClickBuyLazyEff()
     {
-        if (mainControl.gameData.lazyPointsTotal >= lazyECost)
+        if (gameData.lazyPointsTotal >= lazyECost)
         {
 
-            mainControl.gameData.lazyPointsTotal -= lazyECost;
+            gameData.lazyPointsTotal -= lazyECost;
             lazyELevel += 1;
         }
     }

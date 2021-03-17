@@ -13,7 +13,7 @@ public class MainControl : MonoBehaviour
     void Start()
     {
         gameData = new GameData();
-        lEfficency.triggerActiveLEUpgrade();
+        
     }
 
     public void AddPoints()
