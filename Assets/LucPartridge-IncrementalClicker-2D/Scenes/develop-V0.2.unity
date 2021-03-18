@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1624132419}
         m_TargetAssemblyTypeName: MainControl, Assembly-CSharp
-        m_MethodName: AddPoints
+        m_MethodName: onClickBeLazy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -874,6 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b608cb633c66944999e809ea9f4d7bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainControl: {fileID: 0}
   lazyNameText: {fileID: 1227974370}
   lazyLevelText: {fileID: 1682683130}
   lazyCostText: {fileID: 1357963698}
@@ -1608,7 +1609,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lazyPointsText: {fileID: 1624132420}
+  button: {fileID: 56107216}
   lEfficency: {fileID: 694478294}
+  lazyPointsTotal: 0
+  increment: 1
 --- !u!114 &1624132420
 MonoBehaviour:
   m_ObjectHideFlags: 0
