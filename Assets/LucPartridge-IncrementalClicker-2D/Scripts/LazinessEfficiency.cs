@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class LazinessEfficiency : MonoBehaviour
 {
-    public GameData gameData;
+    public MainControl mainControl;
 
     
 
@@ -16,40 +16,49 @@ public class LazinessEfficiency : MonoBehaviour
     [SerializeField]
     private TMP_Text lazyCostText;
 
-    public double lazyELevel;
-    public double lazyECost;
+    public double lazyELevel = 1;
+    public double lazyECost = 10;
+
+
+    //public double lazyEAdd;
 
     // Start is called before the first frame update
     void Start()
     {
-        lazyELevel = 1;
-        lazyECost = 10;
+
         gameObject.SetActive(false);
     }
 
     public void triggerActiveLEUpgrade()
     {
-        if (gameData.lazyPointsTotal >= lazyECost)
+        if (mainControl.lazyPointsTotal >= lazyECost)
         {
             gameObject.SetActive(true);
         }
     }
 
+
+    /// <summary>
+    /// When you click the button, if your current score is greater than or equal to
+    /// the cost of the upgrade, subtract the cost of the upgrade
+    /// </summary>
     public void OnClickBuyLazyEff()
     {
-        if (gameData.lazyPointsTotal >= lazyECost)
+        triggerActiveLEUpgrade();
+
+        if (mainControl.lazyPointsTotal >= lazyECost) // if points obtained greater than or equal to cost
         {
-
-            gameData.lazyPointsTotal -= lazyECost;
-            lazyELevel += 1;
+            mainControl.lazyPointsTotal -= lazyECost; // subtract cost here
+            lazyELevel += 1; // increase level by 1
+            mainControl.increment = mainControl.increment++; // This SHOULD increase the increment value in MainControl by 1 each time you press the button
         }
-    }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
+        lazyECost = lazyELevel * lazyECost;  // cost is now multiplied by the level
         
+       
     }
+
+
+
+
+    
 }
