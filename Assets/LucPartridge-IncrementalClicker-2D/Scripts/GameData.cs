@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameData : MonoBehaviour
 {
 
-    public double coinsTotal; // declaring a double variable and naming it as lazyPointsTotal - this will be the total score the player has.
+    public float coinsTotal; // declaring a double variable and naming it as lazyPointsTotal - this will be the total score the player has.
     //top where the title is
 
     public float multiplier;
@@ -16,7 +16,7 @@ public class GameData : MonoBehaviour
     // the effeciency level of clicks, this doesn't effect increment , but does tell the player the level of coin per click.
 
 
-    public float autoCoinCost = 20; // base cost  variable for CoinDispencer
+    //public float autoCoinCost = 20; // base cost  variable for CoinDispencer
 
     public float coinECost = 10;// base cost variable for AddCoins
 

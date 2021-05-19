@@ -1,61 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class CoinDispencer : MonoBehaviour
 {
 
-    // this script increases the amount of coins you earn  by clicking the  main button.
+    // this script increases the amount of coins you earn automatically by clicking the button associated with this script
 
-    private GameData gameData;
-    private Controller controller;
+    public GameData gameData;
+    //private Controller controller;
+    
+   
+    
+    //setting up cost variables
+    [SerializeField]
+    private float costMult = 2f;
+
+    public float autoCoinCost = 20;
 
 
     [SerializeField]
-    private float costMult;
+    private float dispencingIncrement = 0;
+
+    public bool dispencingCoins = false;
 
     [SerializeField]
-    private float dispencer;
+    private TMP_Text costText;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        WhenClicked();
+        gameData = FindObjectOfType<GameData>();
     }
 
 
+    public void Update()
+    {
+       if(dispencingCoins == true)
+        {
+            gameData.coinsTotal += dispencingIncrement * Time.deltaTime; 
+        }
+
+        costText.text = $"Coins required \n {autoCoinCost.ToString("F0")}";
+
+    }
 
     public void WhenClicked()
     {
         // when the button associated with this function is clicked
         // and if your current coin total is equal to or greater than the cost
-        if (gameData.coinsTotal >= gameData.autoCoinCost)
+        if (gameData.coinsTotal >= autoCoinCost)
         {
-            gameData.coinsTotal = gameData.coinsTotal - gameData.autoCoinCost; // subtract the dispencer cost from your total coins (coinsTotal)
+
+            gameData.coinsTotal = gameData.coinsTotal - autoCoinCost; // subtract the dispencer cost from your total coins (coinsTotal)
 
 
             
-            gameData.multiplier = 2; //setting multiplier value for this function
+            
 
-            gameData.autoCoinCost = gameData.multiplier * gameData.autoCoinCost; //sets cost of the future upgrade by using the multiplier variable
+            autoCoinCost = costMult * autoCoinCost; //sets cost of the future upgrade by using the multiplier variable
 
 
-            dispencer++;//  dispencer is adding 
+            costMult++; //setting multiplier value for this function
 
-            gameData.coinsTotal = gameData.coinsTotal + dispencer * Time.deltaTime;
+            dispencingIncrement++;
+
+            dispencingCoins = true;
+
         }
-    }
-
-    public void DispencingCoins()
-    {
-       
-
     }
 
 

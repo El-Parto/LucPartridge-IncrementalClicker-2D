@@ -1,7 +1,8 @@
-using UnityEngine;
-using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 
 public class Controller : MonoBehaviour
@@ -13,29 +14,35 @@ public class Controller : MonoBehaviour
 
     public GameData gameData; // calls a class refering to the GameData Script
 
-    public CoinDispencer dispencer;
+    public Button dispencingButton;
 
+    public CoinDispencer coinDispencer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
 
     }
 
     public void AddPoints()
     {
+
         // Adds the "increment" float variable to the double variable "lazyPoints" if the player has a multiplier, then the increment is multiplied by the multiplier.
         gameData.coinsTotal = gameData.coinsTotal + gameData.addCoinIncrement;
-
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        coinTotalText.text = "Lazy Points \n" + gameData.coinsTotal; // makes it so that the text will add the the double variable (coinsTotal) to the string
-
+        coinTotalText.text = $"Coins  \n {gameData.coinsTotal.ToString("F0")}"; // makes it so that the text will add the the double variable (coinsTotal) to the string
+        
+        if(gameData.coinsTotal >= coinDispencer.autoCoinCost)
+        {
+            dispencingButton.gameObject.SetActive(true);
+        }
     }
 }

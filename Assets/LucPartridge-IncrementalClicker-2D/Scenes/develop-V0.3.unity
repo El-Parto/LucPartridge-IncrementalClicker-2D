@@ -922,8 +922,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d2abd9fc48a5c48af4e45148202114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  costMult: 0
-  dispencer: 0
+  gameData: {fileID: 0}
+  costMult: 2
+  autoCoinCost: 20
+  dispencingIncrement: 0
+  dispencingCoins: 0
+  costText: {fileID: 1538563849}
 --- !u!4 &1177813643
 Transform:
   m_ObjectHideFlags: 0
@@ -1311,7 +1315,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1469791164}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1177813642}
+        m_TargetAssemblyTypeName: CoinDispencer, Assembly-CSharp
+        m_MethodName: WhenClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1469791164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,7 +1549,6 @@ MonoBehaviour:
   multiplier: 0
   addCoinIncrement: 1
   coinELevel: 1
-  autoCoinCost: 20
   coinECost: 10
 --- !u!1 &1624132418
 GameObject:
@@ -1848,4 +1863,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinTotalText: {fileID: 1624132420}
   gameData: {fileID: 1612355932}
-  dispencer: {fileID: 1177813642}
+  dispencingButton: {fileID: 1469791163}
+  coinDispencer: {fileID: 1177813642}
