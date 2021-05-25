@@ -12,8 +12,8 @@ public class CoinDispencer : MonoBehaviour
 
     public GameData gameData;
     //private Controller controller;
-    
-   
+
+    public Button dispencerButton;
     
     //setting up cost variables
     [SerializeField]
@@ -38,36 +38,29 @@ public class CoinDispencer : MonoBehaviour
 
     public void Update()
     {
-       if(dispencingCoins == true)
+        if (dispencingCoins == true)
         {
-            gameData.coinsTotal += dispencingIncrement * Time.deltaTime; 
+            gameData.coinsTotal += dispencingIncrement * Time.deltaTime;
         }
 
-        costText.text = $"Coins required \n {autoCoinCost.ToString("F0")}";
-
+        costText.text = $"Coins required \n {autoCoinCost.ToString("F0")}";// the text for the cost of the upgrade
+        if (gameData.coinsTotal >= autoCoinCost)
+        {
+            dispencerButton.gameObject.SetActive(true);
+        }
     }
-
     public void WhenClicked()
     {
         // when the button associated with this function is clicked
         // and if your current coin total is equal to or greater than the cost
         if (gameData.coinsTotal >= autoCoinCost)
         {
-
             gameData.coinsTotal = gameData.coinsTotal - autoCoinCost; // subtract the dispencer cost from your total coins (coinsTotal)
 
-
-            
-            
-
             autoCoinCost = costMult * autoCoinCost; //sets cost of the future upgrade by using the multiplier variable
-
-
             costMult++; //setting multiplier value for this function
-
-            dispencingIncrement++;
-
-            dispencingCoins = true;
+            dispencingIncrement++; // the value of dispencingIncrement is incremented
+            dispencingCoins = true; // setting the bool for dispencing coins to be true so we can rake in the dosh.
 
         }
     }

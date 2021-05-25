@@ -10,7 +10,7 @@ public class GameData : MonoBehaviour
 
     public float multiplier;
     // the multiplier for the cost
-    public float addCoinIncrement = 1; // declaring a float variable, this is how much the "points" go up by each time clicked
+    public float addCoinIncrement = 1f; // declaring a float variable, this is how much the "points" go up by each time clicked
     // the incremental value of your clicks affected by Coin Effenciency.
     public float coinELevel = 1;
     // the effeciency level of clicks, this doesn't effect increment , but does tell the player the level of coin per click.
