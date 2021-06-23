@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/LucPartridge-IncrementalClicker-2D/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/LucPartridge-IncrementalClicker-2D/Scenes/PrototypeFinito.unity
+    guid: 6a49e5aaeb267834d84222ff84312c18
   m_configObjects: {}

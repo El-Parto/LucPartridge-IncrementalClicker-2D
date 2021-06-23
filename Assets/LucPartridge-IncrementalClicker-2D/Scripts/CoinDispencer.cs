@@ -40,10 +40,12 @@ public class CoinDispencer : MonoBehaviour
     {
         if (dispencingCoins == true)
         {
+            // if you are dispensing coins, add dispencing increment over time
             gameData.coinsTotal += dispencingIncrement * Time.deltaTime;
         }
 
         costText.text = $"Coins required \n {autoCoinCost.ToString("F0")}";// the text for the cost of the upgrade
+        //if total coins is greater than the cost of the cost, activate the button gameObject
         if (gameData.coinsTotal >= autoCoinCost)
         {
             dispencerButton.gameObject.SetActive(true);

@@ -40,9 +40,10 @@ public class Controller : MonoBehaviour
     {
         coinTotalText.text = $"Coins  \n {gameData.coinsTotal.ToString("F0")}"; // makes it so that the text will add the the double variable (coinsTotal) to the string
         
+        // If your total sum of coins is greater than the upgrade cost
         if(gameData.coinsTotal >= coinDispencer.autoCoinCost)
         {
-            dispencingButton.gameObject.SetActive(true);
+            dispencingButton.gameObject.SetActive(true); //activate the button game object
         }
     }
 }

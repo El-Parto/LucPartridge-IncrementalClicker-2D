@@ -33,7 +33,7 @@ public class CoinEffeciency : MonoBehaviour
     void Update()
     {
 
-        costText.text = $"Coins required \n {coinEfCost.ToString("F0")}";
+        costText.text = $"Coins required \n {coinEfCost.ToString("F0")}";//the cost text is changed here.
     }
 
     public void Clicked()
